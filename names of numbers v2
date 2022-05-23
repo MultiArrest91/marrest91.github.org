@@ -386,8 +386,8 @@ function tier3number(logloglogNum) {
 }
 function tier4illionPrefix(num, vers) {
 // vers = 0: right before illion, 1: tier-2 separator, 2: tier-3 separator
-	var nums = ["","kal","mej","gij","ast","lun","ferm","jov","sol","bet","gloc","gax","sup","vers","mult","pyr","gunt","kentr","onl","paptr","hous","hors"];
-	var nums2 = ["","al","ej","ij","ast","un","erm","ov","ol","et","loc","ax","up","ers","ult","yr","unt","entr","onl","aptr","ous"]; // using eet instead of et because of the sequence bet,det,tret,tet,pet can cause confusion with meg,gig,ter,pet with pet having two possible meanings.
+	var nums = ["","kal","mej","gij","ast","lun","ferm","jov","sol","bet","gloc","gax","sup","vers","mult","pyr","gunt","kentr","onl","paptr","hous","hors","rec","calc","bucr","rend","kator","fret","vox","avt","trong","dem","lucet","frun","pord","letr","tox","sip","kok","ponn","bat","alm"];
+	var nums2 = ["","al","ej","ij","ast","un","erm","ov","ol","et","loc","ax","up","ers","ult","yr","unt","entr","onl","aptr","ous","ors","ec","alc","ucr","end","ator","eet","ox","avt","ong","em","ucet","uun","ord","etr","oox","ip","ok","onn","at"]; // using bem instead of dem because of the sequence dret,drun,dox,dok, can cause confusion with dok having two possible meanings.
 	var numberName = "";
 	num = Math.floor(num);
 	if (num > 14 || num <= 0) {
@@ -524,7 +524,7 @@ function valueNumber(t) {
 			return tier4number(10**10**i);
 		}
 	}
-	return "one " + "nonecxen".fontcolor("green") + "ous".fontcolor("red") + "nonecxen".fontcolor("green") + "aptri".fontcolor("red") + "nonecxen".fontcolor("green") + "onl".fontcolor("red") + "illion";
+	return "one " + "nonecxen".fontcolor("green") + "ati".fontcolor("red") + "nonecxen".fontcolor("green") + "onni".fontcolor("red") + "nonecxen".fontcolor("green") + "ok".fontcolor("red") + "illion";
 }
 function valueNumber2(t) {
 	var numDigits = document.getElementById("maxDigits").value;
