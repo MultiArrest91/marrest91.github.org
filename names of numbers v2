@@ -269,8 +269,9 @@ function tier3illionPrefix(num, vers) {
 	var ones = ["","kill","meg","gig","ter","pet","ex","zett","yott","xenn"];
 	var ones2 = ["k","ken","cod","ctr","cter","cpet","kect","czet","kyot","cxen"]; // for ik-, trak-, tek-
 	var ones3 = ["t","ten","tod","tr","ter","pet","tect","zet","yot","xen"]; // for ho-, bo-
-	var ones4 = ["","","d","tr","t","p","ex","z","y","n"] // for kal-, mej-, gij
+	var ones4 = ["","","d","tr","t","p","ex","z","y","n"] // for kal-, mej-, gij-
 	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","xen"]; // after kal-
+	var ones6 = ["","","d","tr","t","p","ex","z","y","n"] // for mult-
 	var teens = ["dak","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var teens2 = ["dak","tend","dok","tradak","tedak","pedak","texdak","zedak","yodak","nedak"]; // for ho-, bo-
 	var tens = ["","","i","tra","te","pe","exa","za","yo","ne"];
@@ -386,11 +387,11 @@ function tier3number(logloglogNum) {
 }
 function tier4illionPrefix(num, vers) {
 // vers = 0: right before illion, 1: tier-2 separator, 2: tier-3 separator
-	var nums = ["","kal","mej","gij","ast","lun","ferm","jov","sol","bet","gloc","gax","sup","vers","mult","pyr","gunt","kentr","onl","paptr","hous","hors","rec","calc","bucr","rend","kator","fret","vox","avt","trong","dem","lucet","frun","pord","letr","tox","sip","kok","ponn","bat","alm"];
-	var nums2 = ["","al","ej","ij","ast","un","erm","ov","ol","et","loc","ax","up","ers","ult","yr","unt","entr","onl","aptr","ous","ors","ec","alc","ucr","end","ator","eet","ox","avt","ong","em","ucet","uun","ord","etr","oox","ip","ok","onn","at"]; // using bem instead of dem because of the sequence dret,drun,dox,dok, can cause confusion with dok having two possible meanings.
+	var nums = ["","kal","mej","gij","ast","lun","ferm","jov","sol","bet","gloc","gax","sup","vers","mult","pyr","gunt","kentr","onl","paptr","hous","hors"];
+	var nums2 = ["","al","ej","ij","ast","un","erm","ov","ol","et","loc","ax","up","ers","ult","yr","unt","entr","onl","aptr","ous"]; // using peet instead of pet because of the sequence bet,det,tret,tet,pet can cause confusion with meg,gig,ter,pet having two possible meanings.
 	var numberName = "";
 	num = Math.floor(num);
-	if (num > 14 || num <= 0) {
+	if (num > 20 || num <= 0) {
 		return "";
 	}
 	if (vers == 0) {
@@ -407,7 +408,7 @@ function tier4number(loglogloglogNum) {
 	if (loglogloglogNum < 15) {
 		loglogloglogNum = Math.log10(10**(loglogloglogNum)-Math.log10(3));
 	}
-	var tier3illion = Math.floor(10**loglogloglogNum/3); // 1000 = kalillion, 1m = mej-
+	var tier3illion = Math.floor(10**loglogloglogNum/3); // 1000 = kalillion, 1m = mej-, 1b = gij-
 	if (tier3illion < 1e12) {
 		numArray = [Math.floor((10**(10**loglogloglogNum%3)*1000)%1000), Math.floor(10**(10**loglogloglogNum%3))];
 		if (tier3illion < 1e5 && numArray[0] != 0) {k=1} else {k=0};
@@ -417,6 +418,16 @@ function tier4number(loglogloglogNum) {
 				numberName += tier2illionPrefix(numArray[1-i], 2).fontcolor("blue"); // T2 prefix
 				if (numArray[1-i] > 1) {numberName += "-"};
 				numberName += "<br>";
+			}
+			if (illionArray[4] > 0) {
+				if (illionArray[4] > 1) {
+					numberName += tier3illionPrefix(illionArray[4], 2).fontcolor("green") + "ast".fontcolor("red");
+				} else {
+					numberName += "ast".fontcolor("red");
+				}
+				if (illionArray[1] > 0 || illionArray[2] > 0 || illionArray[3] > 0) {
+					numberName += "i".fontcolor("red");
+				}
 			}
 			if (illionArray[3] > 0) {
 				if (illionArray[3] > 1) {
@@ -524,7 +535,7 @@ function valueNumber(t) {
 			return tier4number(10**10**i);
 		}
 	}
-	return "one " + "nonecxen".fontcolor("green") + "ati".fontcolor("red") + "nonecxen".fontcolor("green") + "onni".fontcolor("red") + "nonecxen".fontcolor("green") + "ok".fontcolor("red") + "illion";
+	return "one " + "nonecxen".fontcolor("green") + "ousi".fontcolor("red") + "nonecxen".fontcolor("green") + "aptri".fontcolor("red") + "nonecxen".fontcolor("green") + "onl".fontcolor("red") + "illion";
 }
 function valueNumber2(t) {
 	var numDigits = document.getElementById("maxDigits").value;
