@@ -271,7 +271,7 @@ function tier3illionPrefix(num, vers) {
 	var ones3 = ["t","ten","tod","tr","ter","pet","tect","zet","yot","xen"]; // for ho-, bo-
 	var ones4 = ["","","d","tr","t","p","ex","z","y","n"] // for kal-, mej-, gij-
 	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","xen"]; // after kal-
-	var ones6 = ["","","d","tr","t","p","ex","z","y","n"] // for mult-
+	var ones6 = ["","","b","tr","t","p","ex","z","y","n"] // for mult-
 	var teens = ["dak","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var teens2 = ["dak","tend","dok","tradak","tedak","pedak","texdak","zedak","yodak","nedak"]; // for ho-, bo-
 	var tens = ["","","i","tra","te","pe","exa","za","yo","ne"];
