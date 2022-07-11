@@ -43,6 +43,7 @@ function tier0number(num) { // number from 0 to 999
 function tier1illion(num) { // number from 0 to 999, 1=million, 2=billion, etc.
 	var ones = ["","m","b","tr","quadr","quint","sext","sept","oct","non"];
 	var ones2 = ["","un","duo","tre","quattuor","quin","sex","septen","octo","novem"];
+	var ones3 = ["","","du","tri","quadri","quin","sex","septi","octi","noni"];
 	var tens = ["","dec","vigint","trigint","quadragint","quinquagint","sexagint","septuagint","octogint","nonagint"];
 	var hundreds = ["","cent","ducent","trecent","quadringent","quingent","sescent","septingent","octingent","nongent"];
 	var numberName = "";
@@ -55,6 +56,14 @@ function tier1illion(num) { // number from 0 to 999, 1=million, 2=billion, etc.
 			numberName += ones2[num%10] + tens[Math.floor((num%100)/10)] + "i" + hundreds[Math.floor(num/100)];
 		} else if (num == 103) {
 			numberName = "trescent";
+		} else if (num == 130) {
+			numberName = "trigintacent";
+		} else if (num == 140) {
+			numberName = "quadragintacent";
+		} else if (num == 150) {
+			numberName = "quinquagintacent";
+		} else if (num == 160) {
+			numberName = "sexagintacent";
 		} else {
 			numberName += ones2[num%10] + hundreds[Math.floor(num/100)];
 		}
@@ -69,7 +78,7 @@ function tier1illion(num) { // number from 0 to 999, 1=million, 2=billion, etc.
 		return numberName + "illion";
 	}
 }
-function tier1illionPrefix(num, vers) { // illion from 0 to 999, vers=0, use m,b,t for 1,2,3, vers=1 use un,duo,tre, vers=2 ignore "un" like so we have micrillion instead of unmicrillion
+function tier1illionPrefix(num, vers) { // illion from 0 to 999, vers=0, use m,b,t for 1,2,3, vers=1 use un,duo,tre, vers=2 use en,du,tri, vers=3 ignore "mi" like so we have micrillion instead of enmicrillion
 	var ones = ["","m","b","tr","quadr","quint","sext","sept","oct","non"];
 	var ones2 = ["","un","duo","tre","quattuor","quin","sex","septen","octo","novem"];
 	var ones3 = ["","","du","tri","quadri","quin","sex","septi","octi","noni"];
@@ -196,23 +205,23 @@ function tier2number(loglogNum) {
 		numberName += tier0number(numArray[1-i]) + "<br>";
 		if (illionArray[3] > 0) {
 			if (illionNumber%1e9 == 0) {
-				numberName += tier1illionPrefix(illionArray[3], 2) + "nan".fontcolor("blue");
+				numberName += tier1illionPrefix(illionArray[3], 3) + "nan".fontcolor("blue");
 			} else {
-				numberName += tier1illionPrefix(illionArray[3], 2) + "nano".fontcolor("blue") + "-";
+				numberName += tier1illionPrefix(illionArray[3], 3) + "nano".fontcolor("blue") + "-";
 			}
 		}
 		if (illionArray[2] > 0) {
 			if (illionNumber%1e6 == 0) {
-				numberName += tier1illionPrefix(illionArray[2], 2) + "micr".fontcolor("blue");
+				numberName += tier1illionPrefix(illionArray[2], 3) + "micr".fontcolor("blue");
 			} else {
-				numberName += tier1illionPrefix(illionArray[2], 2) + "micro".fontcolor("blue") + "-";
+				numberName += tier1illionPrefix(illionArray[2], 3) + "micro".fontcolor("blue") + "-";
 			}
 		}
 		if (illionArray[1] > 0) {
 			if (illionNumber%1e3 == 0) {
-				numberName += tier1illionPrefix(illionArray[1], 2) + "mill".fontcolor("blue");
+				numberName += tier1illionPrefix(illionArray[1], 3) + "mill".fontcolor("blue");
 			} else {
-				numberName += tier1illionPrefix(illionArray[1], 2) + "milli".fontcolor("blue") + "-";
+				numberName += tier1illionPrefix(illionArray[1], 3) + "milli".fontcolor("blue") + "-";
 			}
 		}
 		if (illionArray[0] > 0) {
