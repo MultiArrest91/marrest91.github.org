@@ -72,6 +72,7 @@ function tier1illion(num) { // number from 0 to 999, 1=million, 2=billion, etc.
 function tier1illionPrefix(num, vers) { // illion from 0 to 999, vers=0, use m,b,t for 1,2,3, vers=1 use un,duo,tre, vers=2 ignore "un" like so we have micrillion instead of unmicrillion
 	var ones = ["","m","b","tr","quadr","quint","sext","sept","oct","non"];
 	var ones2 = ["","un","duo","tre","quattuor","quin","sex","septen","octo","novem"];
+	var ones3 = ["","","du","tri","quadri","quin","sex","septi","octi","noni"];
 	var tens = ["","dec","vigint","trigint","quadragint","quinquagint","sexagint","septuagint","octogint","nonagint"];
 	var hundreds = ["","cent","ducent","trecent","quadringent","quingent","sescent","septingent","octingent","nongent"];
 	var numberName = "";
@@ -84,6 +85,8 @@ function tier1illionPrefix(num, vers) { // illion from 0 to 999, vers=0, use m,b
 			numberName += ones2[num%10] + tens[Math.floor((num%100)/10)] + "i" + hundreds[Math.floor(num/100)];
 		} else if (num == 103) {
 			numberName = "trescent";
+		} else if (num == 1005) {
+			numberName = "quinquamill";
 		} else {
 			numberName += ones2[num%10] + hundreds[Math.floor(num/100)];
 		}
@@ -246,7 +249,7 @@ function tier3illionPrefix(num, vers) {
 	var ones = ["","kill","meg","gig","ter","pet","ex","zett","yott","xenn"];
 	var ones2 = ["k","ken","cod","ctr","cter","cpet","kect","czet","kyot","cxen"]; // for ik-, trak-, tek-
 	var ones3 = ["t","ten","tod","tr","ter","pet","tect","zet","yot","xen"]; // for ho-, bo-
-	var ones4 = ["","","","","","","","","",""]; // for kal-, mej-, gij
+	var ones4 = ["","","d","tr","t","p","ex","z","y","n"]; // for kal-, mej-, gij
 	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","xen"]; // after kal-
 	var teens = ["dak","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var teens2 = ["dak","tend","dok","tradak","tedak","pedak","texdak","zedak","yodak","nedak"]; // for ho-, bo-
@@ -364,14 +367,6 @@ function tier3number(logloglogNum) {
 function tier4illionPrefix(num, vers) {
 // vers = 0: right before illion, 1: tier-2 separator, 2: tier-3 separator
 	var nums = ["","kal","mej","gij","ast","lun","ferm","jov","sol","bet","gloc","gax","sup","vers","mult","pyr","gunt","kentr","onl","paptr","hous","hors"];
-	var nums2 = ["","dal","bej","dij","dast","dun","derm","dov","dol","det","dloc","dax","dup","ders","bult","dyr","dunt","dentr","donl","daptr","dous"];
-	var nums3 = ["","tral","trej","trij","trast","trun","trerm","trov","trol","tret","trloc","trax","trup","trers","trult","tryr","trunt","trentr","tronl","traptr","trous"];
-	var nums4 = ["","tal","tej","tij","tast","tun","term","tov","tol","tet","tloc","tax","tup","ters","tult","tyr","tunt","tentr","tonl","taptr","tous"];
-	var nums5 = ["","pal","pej","pij","past","pun","perm","pov","pol","peet","ploc","pax","pup","pers","pult","peyr","punt","pentr","ponl","peaptr","pous"]; // using peet instead of pet because of the sequence bet,det,tret,tet,pet can cause confusion with meg,gig,ter,pet with pet having two possible meanings.
-	var nums6 = ["","exal","exej","exij","exast","exun","exerm","exov","exol","exet","exloc","exax","exup","exers","exult","exyr","exunt","exentr","exonl","exaptr","exous"];
-	var nums7 = ["","zal","zej","zij","zast","zun","zerm","zov","zol","zet","zloc","zax","zup","zers","zult","zyr","zunt","zentr","zonl","zaptr","zous"];
-	var nums8 = ["","yal","yej","yij","yast","yun","yerm","yov","yol","yet","yloc","yax","yup","yers","yult","yyr","yunt","yentr","yonl","yaptr","yous"];
-	var nums9 = ["","nal","nej","nij","nast","nun","nerm","nov","nol","net","nloc","nax","nup","ners","nult","nyr","nunt","nentr","nonl","naptr","nous"];
 	var nums10 = ["","al","ej","ij","ast","un","erm","ov","ol","et","loc","ax","up","ers","ult","yr","unt","entr","onl","aptr","ous"];
 	var numberName = "";
 	num = Math.floor(num);
